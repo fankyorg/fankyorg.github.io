@@ -49,7 +49,7 @@ We know that these timestamps were manipulated. Its also easy to recognize, beca
 
 ![_config.yml]({{ site.baseurl }}/images/MFTExplorer/imaging-process.png)
 
-If you want to see MFT file of your partition, open 7-zip as an administrator, navigate to **\\\\.\\** choose your related physical disk, open **1.Basic data partition.img** and open the folder **\[SYSTEM\]**. There you should see a few files. If you can’t see any file, then you may should unhide protected operating system files. **Copy** the **$MFT** file. Open the $MFT file with [MFTExplorer](https://f001.backblazeb2.com/file/EricZimmermanTools/MFTExplorer.zip). With this tool we are able to see directly which timestamps from which file were manipulated. 
+If you want to see MFT file of your partition, open 7-zip as an administrator, navigate to **\\\\.\\** choose your related physical disk, open **1.Basic data partition.img** and open the folder **\[SYSTEM\]**. There you should see a few files. If you can’t see any file, then you may should unhide protected operating system files. **Copy** the **$MFT** file and open the $MFT file with [MFTExplorer](https://f001.backblazeb2.com/file/EricZimmermanTools/MFTExplorer.zip). With this tool we are able to see directly which timestamps from which file were manipulated. 
 
 ![_config.yml]({{ site.baseurl }}/images/MFTExplorer/MFTExplorer.png)
 ![_config.yml]({{ site.baseurl }}/images/MFTExplorer/MFTExplorer2.png)
