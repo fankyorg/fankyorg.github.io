@@ -23,7 +23,7 @@ First of all, I created 3 files:
 
 ![_config.yml]({{ site.baseurl }}/images/timestaps-in-NTFS/files1.png)
 *Note, the creation time of Test - Copy.txt is when the file was copied. The last write attribute was copied from test.txt*
-> get-item -Path *  | Ft FullName,CreationTime,CreationTimeUtc,LastWriteTime,LastWriteTimeUtc
+> get-item -Path *  \| Ft FullName,CreationTime,CreationTimeUtc,LastWriteTime,LastWriteTimeUtc
 
 As a next step, lets change the CreationTime and LastWriteTime. I do that via [PowerShell](https://www.ghacks.net/2017/10/09/how-to-edit-timestamps-with-windows-powershell/). But there are a lot of tools which you can also you for that. E.G [Meatasploit](https://www.offensive-security.com/metasploit-unleashed/timestomp/)
 
