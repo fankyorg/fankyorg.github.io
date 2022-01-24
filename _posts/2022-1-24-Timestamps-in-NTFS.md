@@ -1,19 +1,25 @@
 ---
 layout: post
-title: You're up and running!
+title: Timestomp in NTFS
 ---
-Today I want to write about 
+Today I want to write about timestomping in NTFS.
 
-Next you can update your site name, avatar and other options using the _config.yml file in the root of your repository (shown below).
+Let MITRE explain you why you should read this blog post:
+> Adversaries may modify file time attributes to hide new or changes to existing files. Timestomping is a technique that modifies the timestamps of a file (the modify, access, create, and change times), often to mimic files that are in the same folder. This is done, for example, on files that have been modified or created by the adversary so that they do not appear conspicuous to forensic investigators or file analysis tools.
+[Indicator Removal on Host: Timestomp](https://attack.mitre.org/techniques/T1070/006/)
 
-![_config.yml]({{ site.baseurl }}/images/timestaps-in-NTFS/404.jpg)
+For a better understanding of the article, you should be familiar with the following principles:
+- MACB Timestamps
+- Master File Table Record
+- Standard Information Attribute
+- File Name Attribute 
+You can find an conclusion about this topics in my [public repo](). 
 
-The easiest way to make your first post is to edit this one. Go into /_posts/ and update the Hello World markdown file. For more instructions head over to the [Jekyll Now repository](https://github.com/barryclark/jekyll-now) on GitHub.
+First of all, I created 3 files.
+![_config.yml]({{ site.baseurl }}/images/timestaps-in-NTFS/files1.png)
 
 
-https://attack.mitre.org/techniques/T1564/004/
 
-
-> Adversaries may use NTFS file attributes to hide their malicious data in order to evade detection. Every New Technology File System (NTFS) formatted partition contains a Master File Table (MFT) that maintains a record for every file/directory on the partition. Within MFT entries are file attributes, such as Extended Attributes (EA) and Data [known as Alternate Data Streams (ADSs) when more than one Data attribute is present], that can be used to store arbitrary data (and even complete files). 
->
-> Adversaries may store malicious data or binaries in file attribute metadata instead of directly in files. This may be done to evade some defenses, such as static indicator scanning tools and anti-virus
+Please note:
+In this case I did not follow the best practices. If you have a forensic investigating, you should always create an image of the original disk and verify with hashes, that nothing was modified. 
+![_config.yml]({{ site.baseurl }}/images/timestaps-in-NTFS/imaging-process.png)
