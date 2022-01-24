@@ -23,16 +23,14 @@ First of all, I created 3 files:
 
 ![_config.yml]({{ site.baseurl }}/images/timestaps-in-NTFS/files1.png)
 *Note, the creation time of Test - Copy.txt is when the file was copied. The last write attribute was copied from test.txt*
-
-    get-item -Path *  | Ft FullName,CreationTime,CreationTimeUtc,LastWriteTime,LastWriteTimeUtc
+> get-item -Path *  | Ft FullName,CreationTime,CreationTimeUtc,LastWriteTime,LastWriteTimeUtc
 
 As a next step, lets change the CreationTime and LastWriteTime. I do that via [PowerShell](https://www.ghacks.net/2017/10/09/how-to-edit-timestamps-with-windows-powershell/). But there are a lot of tools which you can also you for that. E.G [Meatasploit](https://www.offensive-security.com/metasploit-unleashed/timestomp/)
 
 ![_config.yml]({{ site.baseurl }}/images/timestaps-in-NTFS/files2.png)
 
-    (Get-Item "E:\test.txt").LastWriteTime=("12.09.2021 11:22:33")
-
-    (Get-Item "E:\test.txt").CreationTime=("12.09.1848 11:22:33")
+> (Get-Item "E:\test.txt").LastWriteTime=("12.09.2021 11:22:33")
+> (Get-Item "E:\test.txt").CreationTime=("12.09.1848 11:22:33")
 
 Lets check again how the time stamps of the files looks like
 
@@ -52,3 +50,4 @@ Open 7-zip as an administrator, navigate to **\\\.\*** choose your related physi
 
 *It is highly unlikely that a file ever has a millisecond timestamp of zero on an NTFS filesystem.*
 
+https://thestarman.pcministry.com/asm/mbr/IntNTFSfs.htm#VBR
