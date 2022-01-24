@@ -6,6 +6,7 @@ Today I want to write about timestomping in NTFS and how to find manipulated fil
 
 Let MITRE explain you why you should read this blog post:
 > Adversaries may modify file time attributes to hide new or changes to existing files. Timestomping is a technique that modifies the timestamps of a file (the modify, access, create, and change times), often to mimic files that are in the same folder. This is done, for example, on files that have been modified or created by the adversary so that they do not appear conspicuous to forensic investigators or file analysis tools.
+
 [Indicator Removal on Host: Timestomp](https://attack.mitre.org/techniques/T1070/006/)
 
 For a better understanding of the article, you should be familiar with the following principles:
@@ -50,4 +51,4 @@ Open 7-zip as an administrator, navigate to **\\\.\*** choose your related physi
 
 *It is highly unlikely that a file ever has a millisecond timestamp of zero on an NTFS filesystem.*
 
-https://thestarman.pcministry.com/asm/mbr/IntNTFSfs.htm#VBR
+I hope you enjoyed my very first blogpost. 
