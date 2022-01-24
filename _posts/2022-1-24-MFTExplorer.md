@@ -15,7 +15,7 @@ For a better understanding of the article, you should be familiar with NTFS, esp
 - Standard Information Attribute
 - File Name Attribute
 
-On this [GitHub Repo](https://github.com/Invoke-IR/ForensicPosters) you can find the information as a poster. I also recommen to read this articel [here](https://dfir.ru/2021/01/10/standard_information-vs-file_name/)
+On this [GitHub Repo](https://github.com/Invoke-IR/ForensicPosters) you can find the information as a poster. I also recommend to read this article [here](https://dfir.ru/2021/01/10/standard_information-vs-file_name/).
 
 ## Explore $MFT
 First of all, I created 3 files:
