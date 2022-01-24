@@ -9,14 +9,15 @@ Let MITRE explain you why you should read this blog post:
 
 [Indicator Removal on Host: Timestomp](https://attack.mitre.org/techniques/T1070/006/)
 
-For a better understanding of the article, you should be familiar with the following principles:
-- MACB Timestamps
-- Master File Table Record
+## Introduction
+For a better understanding of the article, you should be familiar with NTFS, especially with the following principles:
+- [Master File Table](https://www.ntfs.com/ntfs-mft.htm)
 - Standard Information Attribute
-- File Name Attribute 
+- File Name Attribute
 
-You can find an conclusion about this topics in my [public repo](). 
+On this [GitHub Repo](https://github.com/Invoke-IR/ForensicPosters) you can find the information as a poster. 
 
+## Explore $MFT
 First of all, I created 3 files:
 - test.txt
 - test - Copy.txt (nomen est omen - this file is a copy of test.txt)
@@ -56,6 +57,6 @@ If you want to see MFT file of your partition, open 7-zip as an administrator, n
 *It is highly unlikely that a file ever has a millisecond timestamp of zero on an NTFS filesystem.*
 
 ## Conclusion
-Even if you can change the standard information attributes, the file name attributes are still available. If you have access on the master file table you can check the “real” timestamps. 
+Even if you can change the **standard information** attributes, the **file name** attributes are still available. If you have access on the master file table you can check the “real” timestamps. 
 
 I hope you enjoyed my very first blogpost. 
