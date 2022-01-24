@@ -29,7 +29,7 @@ First of all, I created 3 files:
 get-item -Path * | Ft FullName,CreationTime,CreationTimeUtc,LastWriteTime,LastWriteTimeUtc
 ```
 
-As a next step, lets change the CreationTime and LastWriteTime. I do that via [PowerShell](https://www.ghacks.net/2017/10/09/how-to-edit-timestamps-with-windows-powershell/). But there are a lot of tools which you can also you for that. E.G [Meatasploit](https://www.offensive-security.com/metasploit-unleashed/timestomp/)
+As a next step, lets change the CreationTime and LastWriteTime. I do that via [PowerShell](https://www.ghacks.net/2017/10/09/how-to-edit-timestamps-with-windows-powershell/). But there are a lot of tools which you can also you for that. E.G [Metasploit](https://www.offensive-security.com/metasploit-unleashed/timestomp/)
 
 ![_config.yml]({{ site.baseurl }}/images/MFTExplorer/files2.png)
 
