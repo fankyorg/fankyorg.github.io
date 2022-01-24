@@ -25,16 +25,17 @@ First of all, I created 3 files:
 ![_config.yml]({{ site.baseurl }}/images/timestaps-in-NTFS/files1.png)
 *Note, the creation time of Test - Copy.txt is when the file was copied. The last write attribute was copied from test.txt*
 ```PowerShell
-> get-item -Path *  \| Ft FullName,CreationTime,CreationTimeUtc,LastWriteTime,LastWriteTimeUtc
+get-item -Path * | Ft FullName,CreationTime,CreationTimeUtc,LastWriteTime,LastWriteTimeUtc
 ```
 
 As a next step, lets change the CreationTime and LastWriteTime. I do that via [PowerShell](https://www.ghacks.net/2017/10/09/how-to-edit-timestamps-with-windows-powershell/). But there are a lot of tools which you can also you for that. E.G [Meatasploit](https://www.offensive-security.com/metasploit-unleashed/timestomp/)
 
 ![_config.yml]({{ site.baseurl }}/images/timestaps-in-NTFS/files2.png)
 
-> (Get-Item "E:\test.txt").LastWriteTime=("12.09.2021 11:22:33")
-> (Get-Item "E:\test.txt").CreationTime=("12.09.1848 11:22:33")
-
+```PowerShell
+(Get-Item "E:\test.txt").LastWriteTime=("12.09.2021 11:22:33")
+(Get-Item "E:\test.txt").CreationTime=("12.09.1848 11:22:33")
+```
 Lets check again how the time stamps of the files looks like
 
 ![_config.yml]({{ site.baseurl }}/images/timestaps-in-NTFS/files3.png)
@@ -47,7 +48,7 @@ We know that these timestamps were manipulated. Its also easy to recognize, beca
 
 ![_config.yml]({{ site.baseurl }}/images/timestaps-in-NTFS/imaging-process.png)
 
-Open 7-zip as an administrator, navigate to **\\\.\*** choose your related physical disk, open **1.Basic data partition.img** and open the folder **\[SYSTEM\]**. There you should see a few files. If you can’t see any file, then you may should unhide protected operating system files. **Copy** the **$MFT** file. Open the $MFT file with [MFTExplorer](https://f001.backblazeb2.com/file/EricZimmermanTools/MFTExplorer.zip). With this tool we are able to see directly which timestamps from which file were manipulated. 
+If you want to see MFT file of your partition, open 7-zip as an administrator, navigate to **[\\.\]** choose your related physical disk, open **1.Basic data partition.img** and open the folder **\[SYSTEM\]**. There you should see a few files. If you can’t see any file, then you may should unhide protected operating system files. **Copy** the **$MFT** file. Open the $MFT file with [MFTExplorer](https://f001.backblazeb2.com/file/EricZimmermanTools/MFTExplorer.zip). With this tool we are able to see directly which timestamps from which file were manipulated. 
 
 ![_config.yml]({{ site.baseurl }}/images/timestaps-in-NTFS/MFTExplorer.png)
 
