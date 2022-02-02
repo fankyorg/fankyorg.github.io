@@ -35,7 +35,7 @@ And that is the crucial point of DNS exfiltration. If I want to send data outsid
 
 On my ubuntu server I see the following:
 
-![_config.yml]({{ site.baseurl }}/images/DNS-Exfiltration/ubuntu-capture.png)
+![_config.yml]({{ site.baseurl }}/images/DNS-Exfiltration1/ubuntu-capture.png)
 *Note: attackers would "hide" the sent data by using encodeding like Base64. Then you are also able to send spaces, commas, dots and so on*
 
 The firewall logs shows that there was no direct communication between the client (10.20.49.103) and the Ubuntu DNS server (10.20.48.10).
