@@ -19,7 +19,7 @@ After reading these articles (especially the one from akamai), I felt I had a ge
 ## LAB setup and exfiltration
  To have the full control over the data stream, I decided using only DNS servers inside my (segmented) network. My planned setup should at the end look like this. 
 
-![_config.yml]({{ site.baseurl }}/images/DNSExfiltration1/laboverview.png) 
+![_config.yml]({{ site.baseurl }}/images/DNS-Exfiltration1/laboverview.png) 
 
  First, I created an A record, which points to my Ubuntu DNS and a zone on my Microsoft DNS Server (which is the primary DNS of my client). After that I created a delegated zone. Here you can see an nslookup on my client.
 
@@ -30,7 +30,8 @@ With this delegation every DNS query to data.exfil.fanky.org is send to my Ubunt
 And that is the crucial point of DNS exfiltration. If I want to send data outside a protected network. I can abuse DNS queries. Even If I have blocked DNS to the internet on my clients. I just need to initiate a domain name resolution request. It doesn’t matter how I sent the data. I can do that for example via browser request, nslookup, curl, or, or. Its only important that I trigger a dns request to something.data.exfil.fanky.org. 
 
 ![_config.yml]({{ site.baseurl }}/images/DNS-Exfiltration1/data-nslookup-curl.png)
-![_config.yml]({{ site.baseurl }}/images/DNS-Exfiltration1/browser.png)
+
+![_config.yml]({{ site.baseurl }}/images/DNS-Exfiltration1/data-browser.png)
 
 On my ubuntu server I see the following:
 
@@ -39,7 +40,7 @@ On my ubuntu server I see the following:
 
 The firewall logs shows that there was no direct communication between the client (10.20.49.103) and the Ubuntu DNS server (10.20.48.10).
 
-![_config.yml]({{ site.baseurl }}/images/DNS-Exfiltration/fw-view.png)
+![_config.yml]({{ site.baseurl }}/images/DNS-Exfiltration1/fw-view.png)
 
 **Credits**
 For the Ubuntu part I used [this article](https://hinty.io/devforth/dns-exfiltration-of-data-step-by-step-simple-guide/). If you want to build in your own LAB with a DNS server which is reachable via internet, then I highly recommend following this article. 
