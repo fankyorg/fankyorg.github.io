@@ -21,7 +21,11 @@ After reading these articles (especially the one from akamai), I felt I had a ge
 
 ![_config.yml]({{ site.baseurl }}/images/DNS-Exfiltration1/laboverview.png) 
 
- First, I created an A record, which points to my Ubuntu DNS and a zone on my Microsoft DNS Server (which is the primary DNS of my client). After that I created a delegated zone. Here you can see an nslookup on my client.
+ First, I created an A record (capturesdns.exfil.fanky.org), which points to my Ubuntu DNS. After that, I created a new zone (exfil.fanky.org) on my Microsoft DNS Server (which is the primary DNS of my client). At the end, I created a delegated zone (data.exfil.fanky.org).
+ 
+ *The fact that I do not use an external DNS does not affect the functionality. The behavior would be exactly the same even with an external DNS server.*
+
+ Here you can see an nslookup on my client.
 
 ![_config.yml]({{ site.baseurl }}/images/DNS-Exfiltration1/nslookup.png)
 
@@ -36,12 +40,15 @@ And that is the crucial point of DNS exfiltration. If I want to send data outsid
 On my ubuntu server I see the following:
 
 ![_config.yml]({{ site.baseurl }}/images/DNS-Exfiltration1/ubuntu-capture.png)
+
 *Note: attackers would "hide" the sent data by using encodeding like Base64. Then you are also able to send spaces, commas, dots and so on*
 
-The firewall logs shows that there was no direct communication between the client (10.20.49.103) and the Ubuntu DNS server (10.20.48.10).
+The firewall logs shows that there was no direct communication between the client (10.20.49.103) and the Ubuntu DNS server (10.20.48.10). The hole data was send via my "good" dns servver (10.20.50.10).
 
 ![_config.yml]({{ site.baseurl }}/images/DNS-Exfiltration1/fw-view.png)
 
 **Credits**
-For the Ubuntu part I used [this article](https://hinty.io/devforth/dns-exfiltration-of-data-step-by-step-simple-guide/). If you want to build in your own LAB with a DNS server which is reachable via internet, then I highly recommend following this article. 
 
+To configure my Ubuntu DNS server, I used [this article](https://hinty.io/devforth/dns-exfiltration-of-data-step-by-step-simple-guide/). If you want to build in your own LAB with a DNS server which is reachable via internet, then I highly recommend following this article. 
+
+Thats it for today. In the next blogpost 
