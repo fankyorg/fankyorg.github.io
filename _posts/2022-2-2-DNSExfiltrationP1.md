@@ -23,11 +23,13 @@ After reading these articles (especially the one from akamai), I felt I had a ge
 
  First, I created an A record (capturesdns.exfil.fanky.org), which points to my Ubuntu DNS. After that, I created a new zone (exfil.fanky.org) on my Microsoft DNS Server (which is the primary DNS of my client). At the end, I created a delegated zone (data.exfil.fanky.org).
  
- *The fact that I do not use an external DNS does not affect the functionality. The behavior would be exactly the same even with an external DNS server.*
+ *Note: The fact that I do not use an external DNS does not affect the functionality. The behavior would be exactly the same even with an external DNS server.*
 
- Here you can see an nslookup on my client.
+ Here you can see an nslookup on my client:
 
 ![_config.yml]({{ site.baseurl }}/images/DNS-Exfiltration1/nslookup.png)
+
+*I receive the information from my primary DNS server (10.20.50.10), that I can find the dns zone data.exfil.fanky.org on capturedns.exfil.fanky.org with the address 10.20.48.10 (Ubuntu DNS).*
 
 With this delegation every DNS query to data.exfil.fanky.org is send to my Ubuntu server. 
 
