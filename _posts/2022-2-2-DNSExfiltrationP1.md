@@ -51,4 +51,4 @@ The firewall logs shows that there was no direct communication between the clien
 
 To configure my Ubuntu DNS server, I used [this article](https://hinty.io/devforth/dns-exfiltration-of-data-step-by-step-simple-guide/). If you want to build in your own LAB with a DNS server which is reachable via internet, then I highly recommend following this article. 
 
-Thats it for today. In the next blogpost 
+Thats it for today. The topic of part 2 will be how to discover and prevent data exfiltartion via DNS. Thanks for reading!
