@@ -8,6 +8,8 @@ Hello and welcome to my blog! I started this blog to document my journey to beco
 
 Don’t hesitate to contact me on [twitter](https://twitter.com/FankyOrg). 
 
+![_config.yml]({{ site.baseurl }}/images/01.png)
+
 ***Disclaimer***
 The postings on this site reflect my own opinion and do not represent the positions or opinions of my current employer.
 I accept no liability for any information used in this web site. All information is used at your own risk.
