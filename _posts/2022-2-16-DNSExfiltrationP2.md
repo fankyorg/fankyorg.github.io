@@ -3,28 +3,29 @@ layout: post
 title: DNS Exfiltration Part2
 ---
 
-In my [last blogpost](https://fanky.org/DNSExfiltrationP1/) I wrote about how the data flow of DNS data exfiltration. This blogpost is about **detection** and **prevention**. Even if the specific prevention is not so simple. But also for this blogpost, a certain know-how is assumed. Also this time I will not go into detail about how DNS works. But don't worry, there are already many good articles on the internet. As always, I have linked all the pages that I found helpful. 
+In my [last blogpost](https://fanky.org/DNSExfiltrationP1/) I wrote about the data flow of DNS data exfiltration. This blogpost is about **detection** and **prevention**. Even if the specific prevention is not so simple. But also for this blogpost, a certain know-how is assumed. Also this time I will not go into detail about how DNS works. But don't worry, there are already many good articles on the internet. As always, I have linked all the pages that I found helpful. 
 
 ## Introduction
 As already mentioned, its recommended to understand the basics of how DNS works. During my research work I found this great [article](https://www.plixer.com/blog/overview-of-dns-protocol-part-1-of-3/). Highly recommended to everyone who is not familiar with the DNS basics or to everyone like me, who needed a refresher. I can also recommend you wachting this two videos:
 
 - [DNS Tunneling Identification and Defense](https://www.youtube.com/watch?v=CaFo83TlpPM&t=3s&ab_channel=TomOlzak) or [here](bit.ly/33aYOyK) if you prefere a PDF document. 
 - [DNS tunneling down the rabbit hole](https://www.youtube.com/watch?v=ibRVf3NagBI&ab_channel=CarolinaConVideos)
+
 Further on, there is a great [SANS paper](https://www.giac.org/paper/gcia/1116/detecting-dns-tunneling/108367) which was very helpful for me, although it is already almost 10 years old. 
 
 *Even if the chance is small that ever someone of these people will read this blog here: thank you very much! These videos and documents helped me a lot with my studies!*
 
 ## Prevention
-DNS firewalls are one of the best options to defense DNS exfiltration. Honestly, before I started to have a look at DNS exfiltration, I had never heart about DNS firewalls. So I did again some research and found a great [Infoblox article](https://blogs.infoblox.com/security/do-i-need-both-dns-firewall-and-next-generation-firewall/) which I recommend to everyone. For those of you who don't want to read this article, a very short summary of what a DNS firewall does: DNS firewalls uses response policy zone (RPZ). RPZ is a kind of a filtering mechanism. Domain which are already known as harmful are not allowed to communicate with are blocked. E.G if fank.org is already known as harmful and a client asks your recursive dns server who is \*.fanky.org (or just fanky.org), then the access is blocked. RPZ are regularly updated (at least daily) by the threat intelligence organizations that create and manage them. *Please note that this is a simplification of DNS firewalls*
+DNS firewalls are one of the best options to defense DNS exfiltration. Honestly, before I started to have a look at DNS exfiltration, I had never heart about DNS firewalls. So I did again some research and found a great [Infoblox article](https://blogs.infoblox.com/security/do-i-need-both-dns-firewall-and-next-generation-firewall/) which I recommend to everyone. For those of you who don't want to read this article, a very short summary of what a DNS firewall does: DNS firewalls uses response policy zone (RPZ). RPZ is a kind of a filtering mechanism. Domains which are already known as harmful are not allowed to communicate with. E.G if fank.org is already known as harmful and a client asks your recursive dns server who is \*.fanky.org (or just fanky.org), is blocked. RPZ are regularly updated (at least daily) by the threat intelligence organizations that create and manage them. *Please note that this is a simplification of DNS firewalls*
 
 An other important step is hardening user devices. There are several ways to archive hardened devices. Some of them are:
 
 - Application allow list or simply blocking users from installing (untrusted) software on their devices
 - Removal of local admin access from users
-- Anti-malware
 - Host-based firewall
 - Host-based IDS
 - Network segmentation
+- Endpoint protection 
 - **User awareness** I know this is not a device hardening tip. But it is still very important one. 
 
 ## Detection 
