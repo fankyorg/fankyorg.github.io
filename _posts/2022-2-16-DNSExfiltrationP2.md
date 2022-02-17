@@ -8,7 +8,7 @@ In my [last blogpost](https://fanky.org/DNSExfiltrationP1/) I wrote about the da
 ## Introduction
 As already mentioned, its recommended to understand the basics of how DNS works. During my research work I found this great [article](https://www.plixer.com/blog/overview-of-dns-protocol-part-1-of-3/). Highly recommended to everyone who is not familiar with the DNS basics or to everyone like me, who needed a refresher. I can also recommend you wachting this two videos:
 
-- [DNS Tunneling Identification and Defense](https://www.youtube.com/watch?v=CaFo83TlpPM&t=3s&ab_channel=TomOlzak) or [here](bit.ly/33aYOyK) if you prefere a PDF document. 
+- [DNS Tunneling Identification and Defense](https://www.youtube.com/watch?v=CaFo83TlpPM&t=3s&ab_channel=TomOlzak) or [here](https://bit.ly/33aYOyK) if you prefere a PDF document. 
 - [DNS tunneling down the rabbit hole](https://www.youtube.com/watch?v=ibRVf3NagBI&ab_channel=CarolinaConVideos)
 
 Further on, there is a great [SANS paper](https://www.giac.org/paper/gcia/1116/detecting-dns-tunneling/108367) which was very helpful for me, although it is already almost 10 years old. 
